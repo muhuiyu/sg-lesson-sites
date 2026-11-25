@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>お支払い | なお先生の日本語塾</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--red:#c0392b;--red-dark:#8f2a20;--pink:#fbe6e3;--cream:#fffaf5;--ink:#2b2523;--muted:#6f6560;--line:#eadfd8}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Noto Sans JP",system-ui,sans-serif;color:var(--ink);background:linear-gradient(135deg,#fbe6e3,#fff1dc);min-height:100vh;line-height:1.8}
+h1,h2,.brand{font-family:"Zen Maru Gothic","Noto Sans JP",sans-serif;line-height:1.4}
+.wrap{max-width:640px;margin:0 auto;padding:32px 20px 60px}
+.brand{font-weight:700;font-size:19px;color:var(--ink);text-decoration:none;display:flex;align-items:center;gap:10px}
+.brand i{width:34px;height:34px;border-radius:50%;background:var(--red);display:grid;place-items:center;color:#fff;font-style:normal;font-size:18px}
+.card{background:#fff;border-radius:24px;padding:32px 28px;margin-top:20px;box-shadow:0 12px 40px rgba(143,42,32,.1)}
+h1{font-size:26px;margin:4px 0 8px}
+.badge{display:inline-block;background:#fff3b0;color:#7a5a00;font-weight:700;font-size:13px;padding:3px 14px;border-radius:999px}
+.pay{display:grid;grid-template-columns:200px 1fr;gap:26px;align-items:center;margin:26px 0;padding:22px;background:var(--cream);border-radius:18px}
+.qr{width:200px;height:200px;border-radius:14px;background:repeating-conic-gradient(#ead9d3 0 25%,#fff 0 50%) 0 0/24px 24px;display:grid;place-items:center;text-align:center;font-size:13px;color:var(--muted);font-weight:700;border:1px solid var(--line)}
+.qr span{background:#fff;padding:6px 10px;border-radius:8px}
+dl{display:grid;grid-template-columns:70px 1fr;gap:10px 8px;font-size:15px}
+dt{color:var(--red);font-weight:700}
+.amt{font-family:"Zen Maru Gothic";font-size:30px;font-weight:700;color:var(--red);line-height:1.2}
+.ph{background:#fff3b0;padding:0 4px;border-radius:3px}
+ol{padding-left:22px;color:var(--muted);font-size:14.5px;display:grid;gap:6px;margin-top:8px}
+.note{font-size:13px;color:var(--muted);margin-top:18px}
+.btn{display:inline-block;margin-top:22px;color:var(--red);font-weight:700;text-decoration:none}
+@media(max-width:560px){.pay{grid-template-columns:1fr;justify-items:center}dl{width:100%}.card{padding:26px 20px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <a class="brand" href="index.html"><i>な</i>なお先生の日本語塾</a>
+  <div class="card">
+    <span class="badge">ご予約はまだ確定していません</span>
+    <h1>ご予約ありがとうございます 🎉</h1>
+    <p>下記の <b>PayNow</b> でお支払いをお願いします。お支払いを確認でき次第、確定メール（オンライン受講の場合はGoogle Meetのリンクつき）をお送りします。</p>
+
+    <div class="pay">
+      <div class="qr"><span>PayNow QR<br>（画像に差し替え）</span></div>
+      <dl>
+        <dt>金額</dt><dd class="amt">S$ <span class="ph">XX</span></dd>
+        <dt>宛先</dt><dd><span class="ph">[名義 / UEN または電話番号]</span></dd>
+        <dt>参照</dt><dd><b id="ref">お子さまのお名前</b></dd>
+      </dl>
+    </div>
+
+    <h2 style="font-size:16px">お支払いの手順</h2>
+    <ol>
+      <li>銀行アプリで「PayNow」を開き、QRコードを読み取ります。</li>
+      <li>金額を入力し、<b>参照（Reference）欄にお子さまのお名前</b>を入れて送金します。</li>
+      <li>確認でき次第、メールでご連絡します（通常は当日中）。</li>
+    </ol>
+    <p class="note">※ PayNowはシンガポールの銀行口座をお持ちの方のみご利用いただけます。日本からご参加の方は、お問い合わせください。<br>※ しばらくお支払いが確認できない場合、お席を他の方にご案内することがあります。</p>
+    <a class="btn" href="index.html">← トップページに戻る</a>
+  </div>
+</div>
+<script>
+// Cal.com can forward the booker's name as ?name=... (enable "Forward parameters" in the redirect setting)
+try{var n=new URLSearchParams(location.search).get('name');if(n)document.getElementById('ref').textContent=n;}catch(e){}
+</script>
+</body>
+</html>
